@@ -1,0 +1,170 @@
+@import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+  font-family: "Jost", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+main {
+    height: auto;
+}
+
+img {
+    width: 25px;
+    height: 25px;
+}
+
+#sticky {
+    width: 25vw;
+    height: 4vh;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0px;
+    margin-top: -0.9vh;
+    margin-left: 37.5vw;
+    z-index: 1100;
+}
+
+.wallet {
+    background-color: white;
+    width: 25vw;
+    height: 4vh;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    border-bottom: 1px solid #E4E4E4;
+    border-left: 1px solid #E4E4E4;
+    border-right: 1px solid #E4E4E4;
+    position: relative;
+    top: 0vh;
+    margin-left: 0vw;
+    font-weight: 400;
+    font-size: 24px;
+    text-align: center;
+}
+
+#state {
+    margin-top: 0vh;
+}
+
+#label {
+    font-size: 24px;
+    text-align: center;
+    margin-top: 0.2vh;
+}
+
+#information_sign {
+    font-size: 34px;
+    text-align: center;
+    margin-top: 42vh;
+}
+
+#check {
+    background-color: #ffffff;
+    width: 500px; 
+    height: 350px;
+    border-radius: 20px;
+    border:  1px solid #E4E4E4;
+    position: fixed;
+    right: 20px;
+    z-index:1000;
+}
+
+#items_count {
+    width: 230px;
+    height: 70px;
+    font-size: 22px;
+    position: absolute;
+    top: 20px;
+    left: 30px;
+}
+
+#total_count {
+    position: relative;
+    bottom: 25px;
+}
+
+#items_price {
+    width: 180px;
+    height: 70px;
+    font-size: 22px;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+#total_price {
+    position: relative;
+    bottom: 25px;
+}
+
+#delete_all {
+    background-color: #000000;
+    color: #ffffff;
+    width: 200px;
+    height: 50px;
+    font-size: 28px;
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    border-radius: 20px;
+    border: none;
+    cursor:pointer;
+}
+
+#delete_all:hover {
+    background-color: #EF3232;
+}
+
+#buy {
+    background-color: #000000;
+    color: #ffffff;
+    width: 200px;
+    height: 50px;
+    font-size: 28px;
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    border-radius: 20px;
+    border: none;
+    cursor:pointer;
+}
+
+.image_panel {
+    width: 250px;
+    height: 350px;
+}
+
+.name {
+    position:absolute;
+    top: 0px;
+    left: 260px;
+    font-size: 22px;
+}
+
+.delete {
+    position:absolute;
+    top: 10px;
+    margin-left: 817px;
+    cursor: pointer;
+}
+
+.info {
+    width: 300px;
+    position:absolute;
+    bottom: 15px;
+    right: 15px;
+    font-size: 22px;
+    text-align: end;
+}
+
+.price {
+   position: relative;
+   top: 55px;
+}
+
+.count {
+    position: relative;
+   top: 30px;
+}

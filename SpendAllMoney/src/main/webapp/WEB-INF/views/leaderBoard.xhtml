@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="resources/css/leaderboardd.css" type="text/css">
+    <link rel="stylesheet" href="resources/css/exit.css" type="text/css">
+    <title>LeaderBoard</title>
+</head>
+<body>
+    <main>
+        <a th:href="@{/main}"  id="exit"><img src="resources/images/exit.png" alt="exit" title="return"></a>
+
+        <h1 id="label">LeaderBoard</h1>
+        
+        <div id="top_one">
+          <p id="top_one_number" th:text="${personalSession.getAttribute('topOne').getTopNumberByPattern()}">01.</p>
+          <p th:text="${personalSession.getAttribute('topOne').getAccount().getLogin()}" id="top_one_user_name">UserName</p>
+          <div id="top_one_total_spent_money"><p th:text="${personalSession.getAttribute('topOne').getParsedTotalSpentMoney()}">0$</p></div>
+        </div>
+        
+        <div th:each="player : ${personalSession.getAttribute('top')}" class="top">
+          <p th:text="${player.getTopNumberByPattern()}" class="top_number">00.</p>
+          <p th:text="${player.getAccount().getLogin()}" class="top_user_name">UserName</p>
+          <div class="top_total_spent_money"><p th:text="${player.getParsedTotalSpentMoney()}">0$</p></div>
+        </div>
+        
+        <div id="indentation"></div>
+        
+        <div id="your_top">
+          <p id="your_top_label">you:</p>
+          <p th:text="${personalSession.getAttribute('currentPlayerTopNumber')}" id="your_top_number">00.</p>
+          <p th:text="${personalSession.getAttribute('currentPlayerLogin')}" id="your_top_user_name">UserName</p>
+          <div id="your_top_total_spent_money"><p th:text="${personalSession.getAttribute('currentPlayerTotalSpentMoney')}">0$</p></div>
+        </div>
+    </main>
+    
+    <script src="resources/js/leaderBoard.js"></script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="resources/css/shoppingCCart.css">
+    <link rel="stylesheet" href="resources/css/exit.css" type="text/css">
+    <title>shopping cart</title>
+</head>
+<body>
+    <main>
+        <a th:href="@{/main}"  id="exit"><img src="resources/images/exit.png" alt="exit" title="return"></a>
+
+        <div id="sticky">
+            <div class="wallet">
+                <p th:text="${personalSession.getAttribute('state')}" id="state">$</p>
+            </div>
+        </div>
+
+        <p id="information_sign">shopping cart is empty. go to shopping now!</p>
+    </main>
+
+    <footer>
+
+    </footer>
+</body>
+</html>

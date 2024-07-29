@@ -1,0 +1,420 @@
+.panel {
+	background-color: #fff;
+    width: 250px;
+    height: 360px;
+    border-radius: 20px;
+    border: 1px #E4E4E4 solid;
+    position: absolute;
+    z-index: 6;
+}
+
+.panel-sc {
+    width: 850px;
+    height: 350px;
+    border:  1px solid #E4E4E4;
+    border-radius: 20px;
+    position: relative;
+    left: 10px;
+    margin-top: 6px;
+    z-index: 400;
+}
+
+#panel_1 {
+    margin-top: 10vh;
+    margin-left: 10vw;
+}
+
+#burger-item {
+    width: 230px;
+    height: 180px;
+    position: absolute;
+    margin-top: 50px;
+    margin-left: 10px;
+}
+
+#panel_2 {
+    margin-top: 10vh;
+    margin-left: 41.5vw;
+}
+
+#hotdog-item {
+    width: 230px;
+    height: 100px;
+    position: absolute;
+    margin-top: 110px;
+    margin-left: 10px;
+}
+
+#panel_3 {
+    margin-top: 10vh;
+    margin-left: 72.5vw;
+}
+
+#pizza-item {
+    width: 230px;
+    height: 220px;
+    position: absolute;
+    margin-top: 20px;
+    margin-left: 10px;
+}
+
+#panel_4 {
+    margin-top: 70vh;
+    margin-left: 72.5vw;
+}
+
+#t-shirt-gucci {
+    width: 230px;
+    height: 320px;
+    position: absolute;
+    margin-top: 0px;
+    margin-left: 10px;
+}
+
+#panel_5 {
+    margin-top: 70vh;
+    margin-left: 41.5vw;
+}
+
+#dress-gucci {
+    width: 230px;
+    height: 320px;
+    position: absolute;
+    margin-top: 0px;
+    margin-left: 10px;
+}
+
+#panel_6 {
+    margin-top: 70vh;
+    margin-left: 10vw;
+}
+
+#bag-gucci {
+    width: 230px;
+    height: 320px;
+    position: absolute;
+    margin-top: 20px;
+    margin-left: 10px;
+}
+
+#panel_7 {
+    margin-top: 130vh;
+    margin-left: 72.5vw;
+}
+
+#sunglasses-versace {
+    width: 230px;
+    height: 120px;
+    position: absolute;
+    margin-top: 90px;
+    margin-left: 10px;
+}
+
+#panel_8 {
+    margin-top: 130vh;
+    margin-left: 41.5vw;
+}
+
+#perfume-versace {
+    width: 230px;
+    height: 220px;
+    position: absolute;
+    margin-top: 40px;
+    margin-left: 10px;
+}
+
+#panel_9 {
+    margin-top: 130vh;
+    margin-left: 10vw;
+}
+
+#silk-shirt-versace {
+    width: 230px;
+    height: 320px;
+    position: absolute;
+    margin-top: 0px;
+    margin-left: 10px;
+}
+
+#panel_10 {
+    margin-top: 190vh;
+    margin-left: 72.5vw;
+}
+
+#watch-versace {
+    width: 230px;
+    height: 230px;
+    position: absolute;
+    margin-top: 40px;
+    margin-left: 10px;
+}
+
+#panel_11 {
+    margin-top: 190vh;
+    margin-left: 41.5vw;
+}
+
+#casino-watch-jacobandco {
+    width: 230px;
+    height: 380px;
+    position: absolute;
+    margin-top: -40px;
+    margin-left: 10px;
+}
+
+#panel_12 {
+    margin-top: 190vh;
+    margin-left: 10vw;
+}
+
+#the-mystery-turbillon-watch-jacobandco {
+    width: 230px;
+    height: 380px;
+    position: absolute;
+    margin-top: -50px;
+    margin-left: 10px;
+}
+
+#panel_13 {
+    margin-top: 250vh;
+    margin-left: 72.5vw;
+}
+
+#ford-mustang-challenger {
+	width: 230px;
+    height: 150px;
+    position: absolute;
+    margin-top: 80px;
+    margin-left: 10px;
+}
+
+#panel_14 {
+    margin-top: 250vh;
+    margin-left: 41.5vw;
+}
+
+#gmc-sierra-2022 {
+	width: 230px;
+    height: 130px;
+    position: absolute;
+    margin-top: 90px;
+    margin-left: 10px;
+}
+
+#panel_15 {
+    margin-top: 250vh;
+    margin-left: 10vw;
+}
+
+#bmw-m4-2023 {
+	width: 230px;
+    height: 170px;
+    position: absolute;
+    margin-top: 70px;
+    margin-left: 10px;
+}
+
+#panel_16 {
+    margin-top: 310vh;
+    margin-left: 72.5vw;
+}
+
+#lamborghini-huracan {
+	width: 230px;
+    height: 155px;
+    position: absolute;
+    margin-top: 80px;
+    margin-left: 10px;
+}
+
+#panel_17 {
+    margin-top: 310vh;
+    margin-left: 41.5vw;
+}
+
+#mclaren-570s {
+	width: 230px;
+    height: 130px;
+    position: absolute;
+    margin-top: 110px;
+    margin-left: 10px;
+}
+
+#panel_18 {
+    margin-top: 310vh;
+    margin-left: 10vw;
+}
+
+#bugatti-car {
+	width: 230px;
+    height: 130px;
+    position: absolute;
+    margin-top: 100px;
+    margin-left: 10px;
+}
+
+#panel_19 {
+    margin-top: 370vh;
+    margin-left: 10vw;
+}
+
+#mercedes-benz-300-slr-uhlenhaut {
+	width: 230px;
+    height: 130px;
+    position: absolute;
+    margin-top: 100px;
+    margin-left: 10px;
+}
+
+#panel_20 {
+    margin-top: 370vh;
+    margin-left: 41.5vw;
+}
+
+#ferrari-250-gto {
+	width: 230px;
+    height: 130px;
+    position: absolute;
+    margin-top: 100px;
+    margin-left: 10px;
+}
+
+#panel_21 {
+    margin-top: 370vh;
+    margin-left: 72.5vw;
+}
+
+#bugatti-centodieci {
+	width: 230px;
+    height: 197px;
+    position: absolute;
+    margin-top: 80px;
+    margin-left: 10px;
+}
+
+#panel_22 {
+    margin-top: 430vh;
+    margin-left: 10vw;
+}
+
+#capital-towers {
+	width: 230px;
+    height: 260px;
+    position: absolute;
+    margin-top: 30px;
+    margin-left: 10px;
+    border-radius: 15px;
+}
+
+#panel_23 {
+    margin-top: 430vh;
+    margin-left: 41.5vw;
+}
+
+#aaron-spellings-manor {
+	width: 230px;
+    height: 170px;
+    position: absolute;
+    margin-top: 80px; 
+    margin-left: 10px;
+    border-radius: 15px;
+}
+
+#panel_24 {
+    margin-top: 430vh;
+    margin-left: 72.5vw;
+}
+
+#tank-amx-56 {
+	width: 230px;
+    height: 90px;
+    position: absolute;
+    margin-top: 110px; 
+    margin-left: 10px;
+    border-radius: 15px;
+}
+
+#panel_25 {
+    margin-top: 490vh;
+    margin-left: 10vw;
+}
+
+#villa-leopolda {
+	width: 230px;
+    height: 160px;
+    position: absolute;
+    margin-top: 85px; 
+    margin-left: 10px;
+    border-radius: 15px;
+}
+
+#panel_26 {
+    margin-top: 490vh;
+    margin-left: 41.5vw;
+}
+
+#v-22-osprey {
+	width: 230px;
+    height: 165px;
+    position: absolute;
+    margin-top: 85px; 
+    margin-left: 10px;
+    border-radius: 15px;
+}
+
+#panel_27 {
+    margin-top: 490vh;
+    margin-left: 72.5vw;
+}
+
+#grumman-e-2d-advanced-hawkeye {
+	width: 230px;
+    height: 165px;
+    position: absolute;
+    margin-top: 85px; 
+    margin-left: 10px;
+    border-radius: 15px;
+}
+
+#panel_28 {
+    margin-top: 550vh;
+    margin-left: 10vw;
+}
+
+#arleigh-burke-ddg-51-destroyer {
+	width: 230px;
+    height: 165px;
+    position: absolute;
+    margin-top: 85px; 
+    margin-left: 10px;
+    border-radius: 15px;
+} 
+
+#panel_29 {
+    margin-top: 550vh;
+    margin-left: 41.5vw;
+}
+
+#charles-de-gaulle-aircraft-carrier {
+	width: 230px;
+    height: 165px;
+    position: absolute;
+    margin-top: 85px; 
+    margin-left: 10px;
+    border-radius: 15px;
+} 
+
+#panel_30 {
+    margin-top: 550vh;
+    margin-left: 72.5vw;
+}
+
+#hms-astute {
+	width: 230px;
+    height: 130px;
+    position: absolute;
+    margin-top: 100px; 
+    margin-left: 10px;
+    border-radius: 70px;
+    
+}

@@ -1,0 +1,279 @@
+@import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+  font-family: "Jost", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+main {
+    /* background-color:antiquewhite; */
+    height: 700vh;
+}
+
+img {
+    width: 25px;
+    height: 25px;
+}
+
+#spent_money {
+    position: fixed;
+    top: -15px;
+    left: 5px;
+    font-size: 15px;
+    z-index: 1003;
+}
+
+#money {
+    position: relative;
+    top: -15px;
+}
+
+#board {
+	background-color: #fff;
+    width: 45vw;
+    height: 6vh;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    border-bottom: 1px solid #E4E4E4;
+    border-left: 1px solid #E4E4E4;
+    border-right: 1px solid #E4E4E4;
+    position: relative;
+    top: -1vh;
+    margin-left: 27.5vw;
+    font-weight: 400;
+    font-size: 24px;
+    text-align: center;
+}
+
+#board p {
+	margin-top: -2px;
+}
+
+#people {
+	width: 50px;
+	height: 160px;
+	position: absolute;
+	top: -1px;
+	left: -1px;
+	background-color: #fff;
+	border: 1px solid #E4E4E4;
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
+	box-shadow: -1px 1px 7px #E4E4E4;
+	visibility: hidden;
+}
+
+.person {
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+    border: 1px solid #E4E4E4;
+    cursor: pointer;
+}
+
+#selected-person {
+	position: absolute;
+	top: 2px;
+	left: 4px;
+}
+
+#empty-person {
+	position: absolute;
+	top: 2px;
+	left: 4px;
+}
+
+#people section {
+	width: 50px;
+	height: 113px;
+	margin-top: 47px;
+	overflow-y: scroll;
+}
+
+.lock {
+	position: relative;
+	top: 42px;
+}
+
+
+#sticky {
+    width: 25vw;
+    height: 4vh;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0vh;
+    margin-top: -0.9vh;
+    margin-left: 37.5vw;
+    z-index: 999;
+}
+
+.wallet {
+    background-color: white;
+    width: 25vw;
+    height: 4vh;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    border-bottom: 1px solid #E4E4E4;
+    border-left: 1px solid #E4E4E4;
+    border-right: 1px solid #E4E4E4;
+    position: relative;
+    top: -3.9vh;
+    margin-left: 0vw;
+    font-weight: 400;
+    font-size: 24px;
+    text-align: center;
+}
+
+#reset {
+    position: relative;
+    top: 0vh;
+    right: 1.8vw;
+    cursor: pointer;
+}
+
+#state {
+    margin-top: 0vh;
+}
+
+.shopping_cart {
+    position: relative;
+    top: -7.9vh;
+    margin-left: 25.5vw;
+}
+
+#account_menu {
+	width: 130px;
+	height: 60px;
+	background-color: white;
+	border: 1px solid #E4E4E4;
+	border-radius: 15px;
+	position: fixed;
+	top: 6px;
+	right: 70px;
+	z-index: 1005;
+	visibility: hidden;
+	box-shadow: -1px 1px 7px #E4E4E4;
+	
+}
+
+#account_menu p {
+	font-size: 14px;
+	position: absolute;
+	left: 8px;
+	top: -12px;
+}
+
+#account_menu button {
+	background-color: white;
+	color: #8A3434;
+	font-size: 12px;
+	width: 65px;
+	height: 30px;
+	border: 1px solid #B95B5B;
+	border-radius: 10px;
+	cursor: pointer;
+	position: absolute;
+	top: 25px;
+	left: 5px;
+}
+
+#account {
+	position: fixed;
+	top: 6px;
+	right: 70px;
+	cursor: pointer;
+	z-index: 1006;
+}
+
+#leaderboard {
+	position: fixed;
+	top: 6px;
+	right: 40px;
+	cursor: pointer;
+	z-index: 1005;
+}
+
+#history-button {
+    position: fixed;
+    top: 6px;
+    right: 10px;
+    cursor: pointer;
+    z-index: 1010;
+}
+
+.controller {
+    width: 250px;
+    height: 50px;
+    position: relative;
+    top: 310px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    border-top: 1px solid #E4E4E4;
+}
+
+.controller_cube {
+    background-color: white;
+    width: 30px;
+    height: 30px;
+    border-radius: 5px;
+    border: 1px #E4E4E4 solid;
+    text-align: center;
+}
+
+.minus {
+    position: relative;
+    top: 10px;
+    left: 10px;
+    cursor:pointer;
+}
+
+.plus {
+    position: relative;
+    top: 10px;
+    left: 13px;
+    cursor:pointer;
+}
+
+.count {
+    width: 28px;
+    height: 28px;
+    position: relative;
+    top: -20px;
+    left: 86px;
+}
+
+.count p {
+    position: relative;
+    bottom : 13px;
+}
+
+.price {
+    width: 115px;
+    height: 28px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 12px;
+    border: 1px #E4E4E4 solid;
+    position: relative;
+    top: -50px;
+    left: 125px;
+    text-align: center;
+}
+
+.price p {
+    position: relative;
+    bottom : 13px;
+}
+
+
+footer p, footer a {
+    text-align: center;
+    font-size: 16px;
+}
+
+#github {
+    color: #0993fc;
+}
+

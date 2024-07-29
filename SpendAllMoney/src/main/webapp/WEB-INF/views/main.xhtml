@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="resources/css/maino.css" type="text/css">
+    <link rel="stylesheet" href="resources/css/itemss.css" type="text/css">
+    <link rel="stylesheet" href="resources/css/histor.css" type="text/css">
+    <title>spend all money</title>
+</head>
+<body>
+    <main>
+        <div id="spent_money">
+            <p>spent:</p>
+            <p id="money" th:text="${personalSession.getAttribute('person').getSpentMoney()}">0$</p>
+        </div>
+        
+        <div id="board">
+            <p th:text="${personalSession.getAttribute('person').getFixedState()}" hidden="true" id="fixedState">fixed state</p>
+            <img th:attr="src=${personalSession.getAttribute('person').getImage()}, alt=${personalSession.getAttribute('person').getFullName()}" title="selected person" id="selected-person" class="person" onClick="showPeoplePanel()"/>
+            <div id="people">
+            <img src="resources/images/person-icon.png" alt="person" title="select person" id="empty-person" class="person" onClick="hidePeoplePanel()"/>
+              <section>
+                 <div th:each="businessman : ${people.getPeopleList()}">
+                   <img src="resources/images/lock.png" alt="lock" class="lock" hidden="true"/>
+                   <img th:attr="src=${businessman.getImage()}, alt=${businessman.getFullName()}, title=${businessman.getFullName()}" onClick="changePerson(this)" class="person"/>
+                 </div>
+              </section>
+            </div>
+            <p th:text="${personalSession.getAttribute('person').getStartLabel()}">TRY TO SPEND ALL MONEY!</p>
+        </div>
+
+        <div id="sticky">
+            <img src="resources/images/reset.png" title="reset state" alt="reset" onClick="reset()" id="reset">
+            
+            <div class="wallet">
+                <p th:text="${personalSession.getAttribute('person').getState()}" id="state">$</p>
+            </div>
+
+            <a th:href="@{/shoppingcart}" class="shopping_cart"><img src="resources/images/grocery-store.png" alt="shopping cart" title="shopping cart"></a>
+        </div>
+        
+        <div id="account_menu">
+            <p th:text="${login}">login</p>
+            <button onClick="signout()">Sign Out</button>
+        </div>
+        <img src="resources/images/account.png" title="account" th:attr="alt=${isSignIn}" onClick="accountController(this)" id="account"/>
+        <img src="resources/images/leaderboard.png" title="leaderBoard" alt="leaderBoard" onClick="leaderboard()" id="leaderboard"/>
+        <img src="resources/images/history.png" title="check history" alt="history" onClick="controlHistory()" id="history-button">
+        
+        <div id="panel_1" class="panel">
+            <img src="resources/images/burger-item.png" alt="burger" id="burger-item">
+            <div class="controller">
+               <button onClick="minusCount(this)" id="count_1;price_1;burger-item" class="minus controller_cube">-</button>
+               <button onClick="plusCount(this)" id="count_1;price_1;burger-item;" th:attr="title=${personalSession.getAttribute('countBarrier').getCountBarrier('burger')}" class="plus controller_cube">+</button>
+               <div class="count controller_cube"><p id="count_1" th:text="${personalSession.getAttribute('storage').getCount('burger')}">0</p></div>
+               <div class="price"><p id="price_1">3$</p></div>
+            </div>
+        </div>
+
+        <div id="panel_2" class="panel">
+            <img src="resources/images/hotdog-item.png" alt="hotdog" id="hotdog-item">
+            <div class="controller">
+               <button onClick="minusCount(this)" id="count_2;price_2;hotdog-item" class="minus controller_cube">-</button>
+               <button onClick="plusCount(this)" id="count_2;price_2;hotdog-item;" th:attr="title=${personalSession.getAttribute('countBarrier').getCountBarrier('hotdog')}" class="plus controller_cube">+</button>
+               <div class="count controller_cube"><p id="count_2" th:text="${personalSession.getAttribute('storage').getCount('hotdog')}">0</p></div>
+               <div class="price"><p id="price_2">2$</p></div>
+            </div>            
+        </div>
+
+        <div id="panel_3" class="panel">
+            <img src="resources/images/pizza-item.png" alt="pizza" id="pizza-item">
+            <div class="controller">
+               <button onClick="minusCount(this)" id="count_3;price_3;pizza-item" class="minus controller_cube">-</button>
+               <button onClick="plusCount(this)" id="count_3;price_3;pizza-item;" th:attr="title=${personalSession.getAttribute('countBarrier').getCountBarrier('pizza')}" class="plus controller_cube">+</button>
+               <div class="count controller_cube"><p id="count_3" th:text="${personalSession.getAttribute('storage').getCount('pizza')}">0</p></div>
+               <div class="price"><p id="price_3">7$</p></div>
+            </div>
+        </div>
+
+        <div id="panel_4" class="panel">
+            <img src="resources/images/t-shirt-gucci.png" alt="gucci t-shirt" id="t-shirt-gucci">
+            <div class="controller">
+               <button onClick="minusCount(this)" id="count_4;price_4;t-shirt-gucci" class="minus controller_cube">-</button>
+               <button onClick="plusCount(this)" id="count_4;price_4;t-shirt-gucci;" th:attr="title=${personalSession.getAttribute('countBarrier').getCountBarrier('gucci t-shirt')}" class="plus controller_cube">+</button>
+               <div class="count controller_cube"><p id="count_4" th:text="${personalSession.getAttribute('storage').getCount('gucci t-shirt')}">0</p></div>
+               <div class="price"><p id="price_4">450$</p></div>
+            </div>
+        </div>
+
+        <div id="panel_5" class="panel">
+            <img src="resources/images/dress-gucci.png" alt="gucci dress" id="dress-gucci">
+            <div class="controller">
+               <button onClick="minusCount(this)" id="count_5;price_5;dress-gucci" class="minus controller_cube">-</button>
+               <button onClick="plusCount(this)" id="count_5;price_5;dress-gucci" th:attr="title=${personalSession.getAttribute('countBarrier').getCountBarrier('gucci dress')}" class="plus controller_cube">+</button>
+               <div class="count controller_cube"><p id="count_5" th:text="${personalSession.getAttribute('storage').getCount('gucci dress')}">0</p></div>
+               <div class="price"><p id="price_5">1.480$</p></div>
+            </div>
+        </div>
+
+        <div id="panel_6" class="panel">
+            <img src="resources/images/bag-gucci.png" alt="gucci bag" id="bag-gucci">
+            <div class="controller">
+               <button onClick="minusCount(this)" id="count_6;price_6;bag-gucci" class="minus controller_cube">-</button>
+               <button onClick="plusCount(this)" id="count_6;price_6;bag-gucci;" th:attr="title=${personalSession.getAttribute('countBarrier').getCountBarrier('gucci bag')}" class="plus controller_cube">+</button>
+               <div class="count controller_cube"><p id="count_6" th:text="${personalSession.getAttribute('storage').getCount('gucci bag')}">0</p></div>
+               <div class="price"><p id="price_6">1.527$</p></div>
+            </div>
+        </div>
+
+        <div id="panel_7" class="panel">
+            <img src="resources/images/sunglasses-versace.png" alt="versace sunglasses" id="sunglasses-versace">
+            <div class="controller">
+               <button onClick="minusCount(this)" id="count_7;price_7;sunglasses-versace" class="minus controller_cube">-</button>
+               <button onClick="plusCount(this)" id="count_7;price_7;sunglasses-versace;" th:attr="title=${personalSession.getAttribute('countBarrier').getCountBarrier('versace sunglasses')}" class="plus controller_cube">+</button>
+               <div class="count controller_cube"><p id="count_7" th:text="${personalSession.getAttribute('storage').getCount('versace sunglasses')}">0</p></div>
+               <div class="price"><p id="price_7">363$</p></div>
+            </div>
+        </div>
+
+        <div id="panel_8" class="panel">
+            <img src="resources/images/perfume-versace.png" alt="perfume versace" id="perfume-versace">
+            <div class="controller">
+               <button onClick="minusCount(this)" id="count_8;price_8;perfume-versace" class="minus controller_cube">-</button>
+               <button onClick="plusCount(this)" id="count_8;price_8;perfume-versace" th:attr="title=${personalSession.getAttribute('countBarrier').getCountBarrier('perfume versace')}" class="plus controller_cube">+</button>
+               <div class="count controller_cube"><p id="count_8" th:text="${personalSession.getAttribute('storage').getCount('perfume versace')}">0</p></div>
+               <div class="price"><p id="price_8">105$</p></div>
+            </div>
+        </div>
+
+        <div id="panel_9" class="panel">
+            <img src="resources/images/silk-shirt-versace.png" alt="versace silk shirt" id="silk-shirt-versace">
+            <div class="controller">
+               <button onClick="minusCount(this)" id="count_9;price_9;silk-shirt-versace" class="minus controller_cube">-</button>
+               <button onClick="plusCount(this)" id="count_9;price_9;silk-shirt-versace;" th:attr="title=${personalSession.getAttribute('countBarrier').getCountBarrier('versace silk shirt')}" class="plus controller_cube">+</button>
+               <div class="count controller_cube"><p id="count_9" th:text="${personalSession.getAttribute('storage').getCount('versace silk shirt')}">0</p></div>
+               <div class="price"><p id="price_9">1.390$</p></div>
+            </div>
+        </div>
+
+        <div id="panel_10" class="panel">
+            <img src="resources/images/watch-versace.png" alt="versace watch" id="watch-versace">
+            <div class="controller">
+               <button onClick="minusCount(this)" id="count_10;price_10;watch-versace" class="minus controller_cube">-</button>
+               <button onClick="plusCount(this)" id="count_10;price_10;watch-versace;" th:attr="title=${personalSession.getAttribute('countBarrier').getCountBarrier('versace watch')}" class="plus controller_cube">+</button>
+               <div class="count controller_cube"><p id="count_10" th:text="${personalSession.getAttribute('storage').getCount('versace watch')}">0</p></div>
+               <div class="price"><p id="price_10">1.630$</p></div>
+            </div>
+        </div>
+
+        <div id="panel_11" class="panel">
+            <img src="resources/images/casino-watch-jacobandco.png" alt="jacob&co casino watch" id="casino-watch-jacobandco">
+            <div class="controller">
+               <button onClick="minusCount(this)" id="count_11;price_11;casino-watch-jacobandco" class="minus controller_cube">-</button>
+               <button onClick="plusCount(this)" id="count_11;price_11;casino-watch-jacobandco;" th:attr="title=${personalSession.getAttribute('countBarrier').getCountBarrier('jacob&co casino watch')}" class="plus controller_cube">+</button>
+               <div class="count controller_cube"><p id="count_11" th:text="${personalSession.getAttribute('storage').getCount('jacob&co casino watch')}">0</p></div>
+               <div class="price"><p id="price_11">280.000$</p></div>
+            </div>
+        </div>
+
+        <div id="panel_12" class="panel">
+            <img src="resources/images/the-mystery-turbillon-watch-jacobandco.png" alt="jacob&co the mystery turbillon watch" id="the-mystery-turbillon-watch-jacobandco">
+            <div class="controller">
+               <button onClick="minusCount(this)" id="count_12;price_12;the-mystery-turbillon-watch-jacobandco" class="minus controller_cube">-</button>
+               <button onClick="plusCount(this)" id="count_12;price_12;the-mystery-turbillon-watch-jacobandco;" th:attr="title=${personalSession.getAttribute('countBarrier').getCountBarrier('jacob&co the mystery turbillon watch')}" class="plus controller_cube">+</button>
+               <div class="count controller_cube"><p id="count_12" th:text="${personalSession.getAttribute('storage').getCount('jacob&co the mystery turbillon watch')}">0</p></div>
+               <div class="price"><p id="price_12">364.000$</p></div>
+            </div>
+        </div>
+        
+        <div id="panel_13" class="panel">
+            <img src="resources/images/ford-mustang-challenger.png" alt="ford mustang challenger" id="ford-mustang-challenger">
+            <div class="controller">
+               <button onClick="minusCount(this)" id="count_13;price_13;ford-mustang-challenger" class="minus controller_cube">-</button>
+               <button onClick="plusCount(this)" id="count_13;price_13;ford-mustang-challenger;" th:attr="title=${personalSession.getAttribute('countBarrier').getCountBarrier('ford mustang challenger')}" class="plus controller_cube">+</button>
+               <div class="count controller_cube"><p id="count_13" th:text="${personalSession.getAttribute('storage').getCount('ford mustang challenger')}">0</p></div>
+               <div class="price"><p id="price_13">32.800$</p></div>
+            </div>
+        </div>
+        
+        <div id="panel_14" class="panel">
+            <img src="resources/images/gmc-sierra-2022.png" alt="GMC sierra 2022" id="gmc-sierra-2022">
+            <div class="controller">
+               <button onClick="minusCount(this)" id="count_14;price_14;gmc-sierra-2022" class="minus controller_cube">-</button>
+               <button onClick="plusCount(this)" id="count_14;price_14;gmc-sierra-2022;" th:attr="title=${personalSession.getAttribute('countBarrier').getCountBarrier('GMC sierra 2022')}" class="plus controller_cube">+</button>
+               <div class="count controller_cube"><p id="count_14" th:text="${personalSession.getAttribute('storage').getCount('GMC sierra 2022')}">0</p></div>
+               <div class="price"><p id="price_14">49.700$</p></div>
+            </div>
+        </div>
+        
+        <div id="panel_15" class="panel">
+            <img src="resources/images/bmw-m4-2023.png" alt="BMW M4 2023" id="bmw-m4-2023">
+            <div class="controller">
+               <button onClick="minusCount(this)" id="count_15;price_15;bmw-m4-2023" class="minus controller_cube">-</button>
+               <button onClick="plusCount(this)" id="count_15;price_15;bmw-m4-2023;" th:attr="title=${personalSession.getAttribute('countBarrier').getCountBarrier('BMW M4 2023')}" class="plus controller_cube">+</button>
+               <div class="count controller_cube"><p id="count_15" th:text="${personalSession.getAttribute('storage').getCount('BMW M4 2023')}">0</p></div>
+               <div class="price"><p id="price_15">75.700$</p></div>
+            </div>
+        </div>
+        
+        <div id="panel_16" class="panel">
+            <img src="resources/images/lamborghini-huracan.png" alt="lamborghini huracan" id="lamborghini-huracan">
+            <div class="controller">
+               <button onClick="minusCount(this)" id="count_16;price_16;lamborghini-huracan" class="minus controller_cube">-</button>
+               <button onClick="plusCount(this)" id="count_16;price_16;lamborghini-huracan;" th:attr="title=${personalSession.getAttribute('countBarrier').getCountBarrier('lamborghini huracan')}" class="plus controller_cube">+</button>
+               <div class="count controller_cube"><p id="count_16" th:text="${personalSession.getAttribute('storage').getCount('lamborghini huracan')}">0</p></div>
+               <div class="price"><p id="price_16">249.000$</p></div>
+            </div>
+        </div>
+        
+        <div id="panel_17" class="panel">
+            <img src="resources/images/mclaren-570s.png" alt="McLaren 570s" id="mclaren-570s">
+            <div class="controller">
+               <button onClick="minusCount(this)" id="count_17;price_17;mclaren-570s" class="minus controller_cube">-</button>
+               <button onClick="plusCount(this)" id="count_17;price_17;mclaren-570s;" th:attr="title=${personalSession.getAttribute('countBarrier').getCountBarrier('McLaren 570s')}" class="plus controller_cube">+</button>
+               <div class="count controller_cube"><p id="count_17" th:text="${personalSession.getAttribute('storage').getCount('McLaren 570s')}">0</p></div>
+               <div class="price"><p id="price_17">191.100$</p></div>
+            </div>
+        </div>
+        
+        <div id="panel_18" class="panel">
+            <img src="resources/images/bugatti-car.png" alt="bugatti" id="bugatti-car">
+            <div class="controller">
+               <button onClick="minusCount(this)" id="count_18;price_18;bugatti-car" class="minus controller_cube">-</button>
+               <button onClick="plusCount(this)" id="count_18;price_18;bugatti-car;" th:attr="title=${personalSession.getAttribute('countBarrier').getCountBarrier('bugatti')}" class="plus controller_cube">+</button>
+               <div class="count controller_cube"><p id="count_18" th:text="${personalSession.getAttribute('storage').getCount('bugatti')}">0</p></div>
+               <div class="price"><p id="price_18">3.300.000$</p></div>
+            </div>
+        </div>
+        
+        <div id="panel_19" class="panel">
+            <img src="resources/images/mercedes-benz-300-slr-uhlenhaut.png" alt="Mercedes Benz 300 SLR Uhlenhaut" id="mercedes-benz-300-slr-uhlenhaut">
+            <div class="controller">
+               <button onClick="minusCount(this)" id="count_19;price_19;mercedes-benz-300-slr-uhlenhaut" class="minus controller_cube">-</button>
+               <button onClick="plusCount(this)" id="count_19;price_19;mercedes-benz-300-slr-uhlenhaut;" th:attr="title=${personalSession.getAttribute('countBarrier').getCountBarrier('Mercedes Benz 300 SLR Uhlenhaut')}" class="plus controller_cube">+</button>
+               <div class="count controller_cube"><p id="count_19" th:text="${personalSession.getAttribute('storage').getCount('Mercedes Benz 300 SLR Uhlenhaut')}">0</p></div>
+               <div class="price"><p id="price_19">142.000.000$</p></div>
+            </div>
+        </div>
+        
+        <div id="panel_20" class="panel">
+            <img src="resources/images/ferrari-250-gto.png" alt="Ferrari 250 GTO" id="ferrari-250-gto">
+            <div class="controller">
+               <button onClick="minusCount(this)" id="count_20;price_20;ferrari-250-gto" class="minus controller_cube">-</button>
+               <button onClick="plusCount(this)" id="count_20;price_20;ferrari-250-gto;" th:attr="title=${personalSession.getAttribute('countBarrier').getCountBarrier('Ferrari 250 GTO')}" class="plus controller_cube">+</button>
+               <div class="count controller_cube"><p id="count_20" th:text="${personalSession.getAttribute('storage').getCount('Ferrari 250 GTO')}">0</p></div>
+               <div class="price"><p id="price_20">48.400.000$</p></div>
+            </div>
+        </div>
+        
+        <div id="panel_21" class="panel">
+            <img src="resources/images/bugatti-centodieci.png" alt="Bugatti Centodieci" id="bugatti-centodieci">
+            <div class="controller">
+               <button onClick="minusCount(this)" id="count_21;price_21;bugatti-centodieci" class="minus controller_cube">-</button>
+               <button onClick="plusCount(this)" id="count_21;price_21;bugatti-centodieci;" th:attr="title=${personalSession.getAttribute('countBarrier').getCountBarrier('Bugatti Centodieci')}" class="plus controller_cube">+</button>
+               <div class="count controller_cube"><p id="count_21" th:text="${personalSession.getAttribute('storage').getCount('Bugatti Centodieci')}">0</p></div>
+               <div class="price"><p id="price_21">9.000.000$</p></div>
+            </div>
+        </div>
+        
+        <div id="panel_22" class="panel">
+            <img src="resources/images/capital-towers.png" alt="Capitals Tower - Park Tower - flat" id="capital-towers">
+            <div class="controller">
+               <button onClick="minusCount(this)" id="count_22;price_22;capital-towers" class="minus controller_cube">-</button>
+               <button onClick="plusCount(this)" id="count_22;price_22;capital-towers;" th:attr="title=${personalSession.getAttribute('countBarrier').getCountBarrier('Capitals Tower - Park Tower - flat')}" class="plus controller_cube">+</button>
+               <div class="count controller_cube"><p id="count_22" th:text="${personalSession.getAttribute('storage').getCount('Capitals Tower - Park Tower - flat')}">0</p></div>
+               <div class="price"><p id="price_22">1.750.000$</p></div>
+            </div>
+        </div>
+        
+        <div id="panel_23" class="panel">
+            <img src="resources/images/aaron-spellings-manor.png" alt="Aaron Spellings Manor" id="aaron-spellings-manor">
+            <div class="controller">
+               <button onClick="minusCount(this)" id="count_23;price_23;aaron-spellings-manor" class="minus controller_cube">-</button>
+               <button onClick="plusCount(this)" id="count_23;price_23;aaron-spellings-manor;" th:attr="title=${personalSession.getAttribute('countBarrier').getCountBarrier('Aaron Spellings Manor')}" class="plus controller_cube">+</button>
+               <div class="count controller_cube"><p id="count_23" th:text="${personalSession.getAttribute('storage').getCount('Aaron Spellings Manor')}">0</p></div>
+               <div class="price"><p id="price_23">150.000.000$</p></div>
+            </div>
+        </div>
+       
+        <div id="panel_24" class="panel">
+            <img src="resources/images/villa-leopolda.png" alt="Villa Leopolda" id="villa-leopolda">
+            <div class="controller">
+               <button onClick="minusCount(this)" id="count_24;price_24;villa-leopolda" class="minus controller_cube">-</button>
+               <button onClick="plusCount(this)" id="count_24;price_24;villa-leopolda;" th:attr="title=${personalSession.getAttribute('countBarrier').getCountBarrier('Villa Leopolda')}" class="plus controller_cube">+</button>
+               <div class="count controller_cube"><p id="count_24" th:text="${personalSession.getAttribute('storage').getCount('Villa Leopolda')}">0</p></div>
+               <div class="price"><p id="price_24">750.000.000$</p></div>
+            </div>
+        </div>
+  
+        <div id="panel_25" class="panel">
+            <img src="resources/images/tank-amx-56.png" alt="tank AMX-56" id="tank-amx-56">
+            <div class="controller">
+               <button onClick="minusCount(this)" id="count_25;price_25;tank-amx-56" class="minus controller_cube">-</button>
+               <button onClick="plusCount(this)" id="count_25;price_25;tank-amx-56;" th:attr="title=${personalSession.getAttribute('countBarrier').getCountBarrier('tank AMX-56')}" class="plus controller_cube">+</button>
+               <div class="count controller_cube"><p id="count_25" th:text="${personalSession.getAttribute('storage').getCount('tank AMX-56')}">0</p></div>
+               <div class="price"><p id="price_25">12.700.000$</p></div>
+            </div>
+        </div>
+        
+        <div id="panel_26" class="panel">
+            <img src="resources/images/v-22-osprey.png" alt="V-22 Osprey" title="V-22 Osprey" id="v-22-osprey">
+            <div class="controller">
+               <button onClick="minusCount(this)" id="count_26;price_26;v-22-osprey" class="minus controller_cube">-</button>
+               <button onClick="plusCount(this)" id="count_26;price_26;v-22-osprey;" th:attr="title=${personalSession.getAttribute('countBarrier').getCountBarrier('V-22 Osprey')}" class="plus controller_cube">+</button>
+               <div class="count controller_cube"><p id="count_26" th:text="${personalSession.getAttribute('storage').getCount('V-22 Osprey')}">0</p></div>
+               <div class="price"><p id="price_26">75.000.000$</p></div>
+            </div>
+        </div>
+        
+        <div id="panel_27" class="panel">
+            <img src="resources/images/grumman-e-2d-advanced-hawkeye.png" alt="Grumman E-2D Advanced Hawkeye" title="Grumman E-2D Advanced Hawkeye" id="grumman-e-2d-advanced-hawkeye">
+            <div class="controller">
+               <button onClick="minusCount(this)" id="count_27;price_27;grumman-e-2d-advanced-hawkeye" class="minus controller_cube">-</button>
+               <button onClick="plusCount(this)" id="count_27;price_27;grumman-e-2d-advanced-hawkeye;" th:attr="title=${personalSession.getAttribute('countBarrier').getCountBarrier('Grumman E-2D Advanced Hawkeye')}" class="plus controller_cube">+</button>
+               <div class="count controller_cube"><p id="count_27" th:text="${personalSession.getAttribute('storage').getCount('Grumman E-2D Advanced Hawkeye')}">0</p></div>
+               <div class="price"><p id="price_27">232.000.000$</p></div>
+            </div>
+        </div>
+        
+        <div id="panel_28" class="panel">
+            <img src="resources/images/arleigh-burke-ddg-51-destroyer.png" alt="Arleigh Burke DDG-51 Destroyer" title="Arleigh Burke DDG-51 Destroyer" id="arleigh-burke-ddg-51-destroyer">
+            <div class="controller">
+               <button onClick="minusCount(this)" id="count_28;price_28;arleigh-burke-ddg-51-destroyer" class="minus controller_cube">-</button>
+               <button onClick="plusCount(this)" id="count_28;price_28;arleigh-burke-ddg-51-destroyer;" th:attr="title=${personalSession.getAttribute('countBarrier').getCountBarrier('Arleigh Burke DDG-51 Destroyer')}" class="plus controller_cube">+</button>
+               <div class="count controller_cube"><p id="count_28" th:text="${personalSession.getAttribute('storage').getCount('Arleigh Burke DDG-51 Destroyer')}">0</p></div>
+               <div class="price"><p id="price_28">1.843.000.000$</p></div>
+            </div>
+        </div>
+        
+        <div id="panel_29" class="panel">
+            <img src="resources/images/charles-de-gaulle-aircraft-carrier.png" alt="Charles de Gaulle Aircraft Carrier" title="Charles de Gaulle Aircraft Carrier" id="charles-de-gaulle-aircraft-carrier">
+            <div class="controller">
+               <button onClick="minusCount(this)" id="count_29;price_29;charles-de-gaulle-aircraft-carrier" class="minus controller_cube">-</button>
+               <button onClick="plusCount(this)" id="count_29;price_29;charles-de-gaulle-aircraft-carrier;" th:attr="title=${personalSession.getAttribute('countBarrier').getCountBarrier('Charles de Gaulle Aircraft Carrier')}" class="plus controller_cube">+</button>
+               <div class="count controller_cube"><p id="count_29" th:text="${personalSession.getAttribute('storage').getCount('Charles de Gaulle Aircraft Carrier')}">0</p></div>
+               <div class="price"><p id="price_29">4.000.000.000$</p></div>
+            </div>
+        </div>
+        
+        <div id="panel_30" class="panel">
+            <img src="resources/images/hms-astute.png" alt="HMS Astute" title="HMS Astute" id="hms-astute">
+            <div class="controller">
+               <button onClick="minusCount(this)" id="count_30;price_30;hms-astute" class="minus controller_cube">-</button>
+               <button onClick="plusCount(this)" id="count_30;price_30;hms-astute;" th:attr="title=${personalSession.getAttribute('countBarrier').getCountBarrier('HMS Astute')}" class="plus controller_cube">+</button>
+               <div class="count controller_cube"><p id="count_30" th:text="${personalSession.getAttribute('storage').getCount('HMS Astute')}">0</p></div>
+               <div class="price"><p id="price_30">5.500.000.000$</p></div>
+            </div>
+        </div>
+    </main>
+     
+    <aside id="history">
+        <button id="clear-button" onClick="clearHistory()">clear</button>
+    
+        <div th:each="item : ${personalSession.getAttribute('history').getItems()}">
+          <div class="panel-history">
+            <img th:attr="src=${item.getImage()}, alt=${item.getName()}, id=${item.getItemIdToString()}">
+          </div>
+          <p th:text="${item.getName}" class="name-history">name</p>
+          <div class="info">
+             <p th:text="${item.getPrice()}" class="price-histroy">$</p>
+             <p th:text="${item.getCountToString()}" class="count-history">count.</p>
+          </div>
+        </div>
+    </aside>
+    
+    <footer>
+    
+        <hr>
+        <p th:text="${personalSession.getAttribute('person').getBio()}">bio</p>
+        <p>My GitHub : <a href="" id="github">https://github.com/ggskggkg</a></p>
+        <p>2024</p>
+    </footer>
+    
+    <script src="resources/js/maine.js"></script>
+</body>
+</html>

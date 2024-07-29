@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="resources/css/authontificationy.css" type="text/css">
+    <link rel="stylesheet" href="resources/css/exit.css" type="text/css">
+    <title>Registration</title>
+  </head>
+  <body>
+    
+    <a th:href="@{/main}"  id="exit"><img src="resources/images/exit.png" alt="exit" title="return"></a>
+    
+    <form th:method="post" th:action="@{/registration}" th:object="${account}">
+      <p id="main-label">registration</p>
+      
+      <label>login:</label><br/>
+      <input type="text" placeholder="enter your login" maxLength="15" th:field="*{login}" required/><br/>
+      <p th:text="${personalSession.getAttribute('loginErrors')}" class="warning" id="login_warning">warning</p>
+      
+      <label>password:</label><br/>
+      <input type="password" placeholder="enter your password" maxLength="25" th:field="*{password}" required/><br/>
+      <p th:text="${personalSession.getAttribute('passwordErrors')}" class="warning" id="password_warning">warning</p>
+      
+      <label>repeat password:</label><br/>
+      <input type="password" placeholder="repeat your password" maxLength="25" th:field="*{repeatedPassword}" required/><br/>
+      <p th:text="${personalSession.getAttribute('repeatedPasswordErrors')}" class="warning" id="repeated-password-warning">warning</p>
+      
+      <input type="reset" value="clear" class="button" id="clear-reg"/>
+      <input type="submit" value="submit" class="button" id="submit-reg"/>
+    </form>
+    
+    <div id="auth-redirect">
+      <p>have account?</p>
+      <a th:href="@{/signin}" id="redirect-registration">sign in</a>
+    </div>
+    
+  </body>
+</html>

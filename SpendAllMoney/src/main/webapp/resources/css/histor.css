@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+    font-family: "Jost", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+#history {
+	visibility: hidden;
+	width: 28vw;
+	height: 100vh;
+	background-color:#ffff;
+	border-left: 1px #E4E4E4 solid;
+	position: fixed;
+	top: 0px;
+	right: 0px;
+	z-index: 1009;
+	overflow-y: scroll;
+	box-shadow: -3px 3px 10px #E4E4E4;
+}
+
+aside p {
+	margin-left: 24px;
+}
+
+.panel-history {
+    width: 26vw;
+    height: 300px;
+    border-radius: 20px;
+    border: 1px #E4E4E4 solid;
+    margin-top: 10px;
+    margin-bottom: -140px;
+    margin-left: 1vw;
+}
+
+#clear-button {
+	color: #000;
+	background-color: #fff;
+	border: 1px #E4E4E4 solid;
+	width: 26vw;
+    height: 30px;
+    font-size: 20px;
+    font-weight: 300;
+    margin-top: 40px;
+    margin-left: 1vw;
+    cursor: pointer;
+}
+
+.name-history {
+	position: relative;
+	bottom: 168px;
+	left: 2px;
+}
+
+.info {
+    width: 20vw;
+    position:relative;
+    bottom: -25px;
+    left: 90px;
+    font-size: 18px;
+    text-align: end;
+}
+
+.count-history {
+	position:relative;
+	bottom: 20px;
+}
+
+

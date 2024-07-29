@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="resources/css/shoppingCCart.css">
+    <link rel="stylesheet" href="resources/css/itemss.css">
+    <link rel="stylesheet" href="resources/css/exit.css" type="text/css">
+    <title>shopping cart</title>
+</head>
+<body>
+    <main>
+        <p id="isSignIn" th:text="${personalSession.getAttribute('status')}" hidden="true">false</p>
+        <p th:text="${personalSession.getAttribute('fixedState')}" hidden="true" id="fixedState">fixed state</p>
+        <a th:href="@{/main}"  id="exit"><img src="resources/images/exit.png" alt="exit" title="return"></a>
+
+        <div id="sticky">
+            <div class="wallet">
+                <p id="state" th:text="${personalSession.getAttribute('state')}">$</p>
+            </div>
+        </div>
+
+        <p id="label">shopping cart</p>
+
+        <div id="check">
+            <div id="items_count">
+                <p>total number of items:</p>
+                <p id="total_count" th:text="${personalSession.getAttribute('shoppingCart').getTotalCount()}">0</p>
+            </div>
+            <div id="items_price">
+                <p>added items on:</p>
+                <p id="total_price" th:text="${personalSession.getAttribute('shoppingCart').getTotalPrice()}">$</p>
+            </div>
+            <a th:href="@{/shoppingcart}"><button onClick="deleteAll()" id="delete_all">delete all</button></a>
+            <button onClick="buy()" id="buy">buy</button>
+        </div>
+
+        <div th:each="item : ${personalSession.getAttribute('shoppingCart').getItems()}" class="panel-sc">
+            <div class="image_panel">
+                <img th:attr="src=${item.getImage()}, id=${item.getItemIdToString()}, alt=${item.getName()}">
+            </div>
+            <img src="resources/images/reject.png" alt="delete" th:attr="id=${item.getName()}" onClick="deleteItem(this)" class="delete">
+            <p class="name" th:text="${item.getName()}">name</p>
+
+            <div class="info">
+                <p class="price" th:text="${item.getPrice()}">$</p>
+                <p class="count" th:text="${item.getCountToString()}">count.</p>
+            </div>
+        </div>
+        
+    </main>
+
+    <footer>
+
+    </footer>
+    
+    <script src="resources/js/scm.js"></script>
+</body>
+</html>

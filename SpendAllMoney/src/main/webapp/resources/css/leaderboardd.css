@@ -1,0 +1,117 @@
+@import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+  font-family: "Jost", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  
+}
+
+#label {
+	font-size: 36px;
+	margin-left: 10px;
+	margin-top: 60px; 
+}
+
+#top_one {
+	width: 97vw;
+	height: 80px;
+	border-radius: 15px;
+	font-size: 22px;
+	position: relative;
+	right: 10px;
+	top: 20px;
+	margin-left: 1.5vw;
+	box-shadow: 5px 5px 10px #E4E4E4;
+}
+
+#top_one_number {
+	position: absolute;
+	margin-left: 1vw;
+}
+
+#top_one_user_name {
+	position: absolute;
+	margin-left: 5vw;
+}
+
+#top_one_total_spent_money {
+	width: 96vw;
+	position: absolute;
+    text-align: end;
+}
+
+.top {
+	width: 100vw;
+	height: 80px;
+	border-bottom: 1px solid #E4E4E4;
+	border-radius: 15px;
+	font-size: 22px;
+	position: relative;
+	right: 10px;
+}
+
+.top_number {
+	position: absolute;
+	margin-left: 1vw;
+}
+
+.top_user_name {
+	position: absolute;
+	margin-left: 5vw;
+}
+
+.top_total_spent_money {
+	width: 99vw;
+	position: absolute;
+    text-align: end;
+}
+
+#indentation {
+	width: 100vw;
+	height: 72px;
+	display: block;
+}
+
+#your_top {
+	width: 100vw;
+	height: 80px; 
+	background-color: #fff;
+	border-radius: 15px;
+	font-size: 22px;
+	position: fixed;
+	right: 0px;
+	bottom: 0px;
+	box-shadow: 0px -2px 8px #E4E4E4;
+	z-index: 100;
+	visibility: visible; 
+}
+
+#your_top_label {
+	position: absolute;
+	margin-left: 48.5vw;
+	bottom: 28px;
+}
+
+#your_top_number {
+	position: absolute;
+	margin-left: 1vw;
+}
+
+#your_top_user_name {
+	position: absolute;
+	margin-left: 5vw;
+}
+
+#your_top_total_spent_money {
+	width: 99vw;
+	position: absolute;
+    text-align: end;
+}
+
+#information_sign {
+	font-size: 34px;
+    text-align: center;
+    margin-top: 42vh;
+}

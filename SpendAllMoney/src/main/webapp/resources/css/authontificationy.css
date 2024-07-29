@@ -1,0 +1,131 @@
+@import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+  font-family: "Jost", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  text-transform: capitalize;
+}
+
+main {
+    height: auto;
+}
+
+img {
+    width: 25px;
+    height: 25px;
+}
+
+form {
+	width: 500px;
+	height: 330px;
+	border: 1px solid #E4E4E4;
+	border-radius: 20px;
+	box-shadow: 2px 2px 6px #DFDFDF;
+	margin-left: auto;
+    margin-right: auto;
+    margin-top: 20vh;
+}
+
+#form-si {
+	height: 260px;
+	margin-top: 25vh;
+}
+
+#main-label {
+	text-align: center;
+	margin-top: 3px;
+	font-size: 20px;
+}
+
+label {
+	margin-left: 20px;
+}
+
+input {
+	width: 340px;
+	height: 35px;
+	border: 1px solid #E4E4E4;
+	border-radius: 5px;
+	margin-left: 15px;
+	font-size: 14px;
+	margin-bottom: 10px;
+	margin-top: 2px;
+	
+}
+
+.warning {
+	color: #8A3434;
+	font-size: 8px;
+	width: 340px;
+	line-height: 7px;
+	position: absolute;
+	position: absolute;
+	margin-left: 17px;
+	margin-top: -9px;
+}
+
+.button {
+	background-color: #fff;
+	width: 100px;
+	height: 35px;
+	border: 1px solid #E4E4E4;
+	border-radius: 10px;
+	text-align: center;
+	font-size: 16px;
+	cursor: pointer;
+}
+
+#clear-reg {
+	position: relative;
+	top: 10px;
+	right: 7px;
+}
+
+#clear-si {
+	position: relative;
+	top: 14px;
+	right: 7px;
+}
+
+#submit-reg {
+	position: relative;
+	top: 10px;
+	left: 256px;
+}
+
+#submit-si {
+	position: relative;
+	top: 14px;
+	left: 256px;
+}
+
+#auth-redirect {
+	width: 500px;
+	height: 20px;
+	margin-left: auto;
+    margin-right: auto;
+	font-size: 13px;
+}
+
+#auth-redirect p {
+	position: relative;
+	bottom: 8px;
+	left: 15px;
+}
+
+#redirect-registration {
+	position: relative;
+	bottom: 40px;
+	left: 104px;
+}
+
+#redirect-signin {
+	position: relative;
+	bottom: 40px;
+	left: 138px;
+}
+
+
+
